@@ -8,9 +8,7 @@ int main(){
   char string[10];
   printf("insert command: ");
   fgets(string,sizeof(string),stdin);
-
-  //replaces \n with null
-  string[strlen(string)-1] = 0;
+  string[strlen(string)-1] = 0; //replaces \n with null
 
   //splitting input
   char *commandArr[100];
@@ -20,7 +18,7 @@ int main(){
     commandArr[ctr] = strsep(&input," ");
     ctr++;
   }
-  //commandArr[ctr] = 0;
+  commandArr[ctr] = 0;
 
   //running it
   execvp(commandArr[0], commandArr);
